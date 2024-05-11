@@ -82,6 +82,7 @@ for (let i = 1; i < mainArray.length; i++) {
     }
     newArray.push(object);
 }
+
 console.log(newArray);
 
 
@@ -111,4 +112,21 @@ console.log(newArray);
 // calculate the average age of the group
 console.log("Calculate the average age of the group:")
 
+let sumAges = 0;
+for (let obj of newArray) {
+    let age = parseInt(obj.age);
+    sumAges += age;
+}
+let averageAge = sumAges / newArray.length;
+console.log("The average age is: " + averageAge);// 
 
+// Part 5: Full Circle --------------------------------------
+console.log(`Part 5: Full Circle ----------------------------`);
+// transform your final set of data back into CSV format.
+
+let csv = colHeaders + "\\n";
+for (let item of newArray) {
+    let row = item.id + "," + item.name + "," + item.occupation + "," + item.age + "\\n";
+    csv += row
+}
+console.log(csv);
