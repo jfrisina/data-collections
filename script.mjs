@@ -1,6 +1,6 @@
 // Part 1: Refactoring Old Code--------------------------------------
 console.log(`Part 1: Refactoring Old Code----------------------------`);
-
+console.log("Please uncomment this section's code! I had to comment it out for Part 2 to work because I didn't know how else to do it :( ")
 // Set variables
 let string = `ID,Name,Occupation,Age\n42,Bruce,Knight,41\n57,Bob,Fry Cook,19\n63,Blaine,Quiz Master,58\n98,Bill,Doctor’s Assistant,26`;
 let cell = ``;
@@ -37,7 +37,6 @@ console.log(`Part 2: Expanding Functionality----------------------------`);
     // - Each row should be stored in a parent array, with the heading row located at index 0.
     // - Cache this two-dimensional array in a variable for later use.
 
-let numColumns = rows.length;
 let mainArray = [];
 
 for (let char of string) {
@@ -53,9 +52,9 @@ for (let char of string) {
         cell += char;
     }
 }
-let colHeaders = mainArray[0];
-console.log(mainArray);
-console.log(`My row headers are: ${colHeaders}`); 
+ let colHeaders = mainArray[0];
+ console.log(mainArray);
+ console.log(`My row headers are: ${colHeaders}`); 
 
 // Part 3: Transforming Data --------------------------------------
 console.log(`Part 3: Transforming Data ----------------------------`);
@@ -68,9 +67,6 @@ console.log(`Part 3: Transforming Data ----------------------------`);
     // Since the heading for each column will be stored in the object keys, you do not need to create an object for the heading row itself.
 
 let keys = mainArray[0]; // column headings
-let values = [mainArray[1]];
-let lowerKeys = []; // put outside of loop so that it is *initialized* only once. Versus putting it in the loop where it would store each key as a separate array.
-
 let newArray = [];
 
 for (let i = 1; i < mainArray.length; i++) {
@@ -120,11 +116,12 @@ for (let obj of newArray) {
 let averageAge = sumAges / newArray.length;
 console.log("The average age is: " + averageAge);// 
 
-// Part 5: Full Circle --------------------------------------
+// // Part 5: Full Circle --------------------------------------
 console.log(`Part 5: Full Circle ----------------------------`);
 // transform your final set of data back into CSV format.
 
 let csv = colHeaders + "\\n";
+
 for (let item of newArray) {
     let row = item.id + "," + item.name + "," + item.occupation + "," + item.age + "\\n";
     csv += row
